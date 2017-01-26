@@ -15,19 +15,18 @@ def cantor ()
 
 	valor = gets
 
-	print "\n\nBaixando ... \n"
+	print "\n\nBaixando ...\n"
 
-	valor.gsub(" ", "%20")
-
-	return valor
+	return valor.gsub(" ", "%20")
 
 end
 
 def dados_curl ()
 
-	# Inserir ' limit ' dinâmico com ARGV[0] e checar se a quantidade de álbuns é maior que disp.
+	# Na configuração atual todas as capas são baixadas, para baixar um número exato
+	# acrescente " &limit=1 " ao final da url : ( Para parar o download ctrl + c )
 
-	uri = URI.parse("https://api.spotify.com/v1/search?q="+cantor()+"&type=album&limit=5")
+	uri = URI.parse("https://api.spotify.com/v1/search?q="+cantor()+"&type=album")
 
 	request = Net::HTTP::Get.new(uri)
 
@@ -64,8 +63,6 @@ system ("clear || cls")
 dados = dados_curl; cont = 0
 
 (dados['albums']['items']).each do
-   
-   # Requisitar local para salvar com Shell ...
 
    open(dados['albums']['items'][cont]['images'][0]['url']) { |f|
 
@@ -83,4 +80,4 @@ end
 
 system("clear || cls")
 
-print "\n\n5 Capas de álbuns foram baixadas.\n\n\n"
+print "\n\nAs capas foram baixadas.\n\n\n"
