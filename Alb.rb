@@ -80,4 +80,4 @@ end
 
 system("clear || cls")
 
-print "\n\nAs capas foram baixadas.\n\n\n"
+print "\n\nDownload concluído !\n\n\n"
