@@ -7,9 +7,10 @@ require 'uri'
 
 require 'open-uri'
 
+
 def cantor ()
 
-	system("clear || cls")
+	system ( "clear || cls" )
 
 	print "\n\nInforme o nome do cantor: "
 
@@ -17,7 +18,7 @@ def cantor ()
 
 	print "\n\nBaixando ...\n"
 
-	return valor.gsub(" ", "%20")
+	valor.gsub(" ", "%20")
 
 end
 
@@ -40,7 +41,7 @@ def dados_curl ()
 
 	response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 
-	  http.request(request)
+	http.request(request)
 
 	end
 
@@ -57,6 +58,7 @@ def dados_curl ()
 	return JSON.parse(response.body).to_h
 
 end
+
 
 system ("clear || cls")
 
